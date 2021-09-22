@@ -1,6 +1,6 @@
 # Autonomous driving semantic segmentation improvement using generalized divisive normalization
 
-The main objective is to check if the segmentation of autonomous driving images is improved by applying the technique known as generalized divisive normalization (GDN). more information about it [here](https://arxiv.org/abs/1511.06281).
+The main objective is to check if the segmentation of autonomous driving images is improved by applying the technique known as generalized divisive normalization (GDN). More information about it [here](https://arxiv.org/abs/1511.06281).
 
 ## Dataset: Cistyscapes
 

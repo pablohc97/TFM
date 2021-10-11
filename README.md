@@ -5,3 +5,7 @@ The main objective is to check if the segmentation of autonomous driving images 
 ## Dataset: Cistyscapes
 
 Large-scale dataset that contains a diverse set of stereo video sequences recorded in street scenes from 50 different cities, with high quality pixel-level annotations of 5000 frames in addition to a larger set of 20000 weakly annotated frames. You can access it from [here](https://www.cityscapes-dataset.com/).
+
+<p>
+    <img src="https://i.imgur.com/50UFABF.jpg" width="500" height="240" />
+</p>

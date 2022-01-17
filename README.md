@@ -15,7 +15,7 @@ Three different models are created. The first one, without any GDN layers, has t
 These three models are trained with the three previously mentioned datasets. The results on test can be seen in the next table.
 
 | Dataset            | 2 GDN layers | 1 GDN layer | No GDN layers |
-|--------------------|--------------|-------------|---------------|
+|:------------------:|:------------:|:-----------:|:-------------:|
 | Original Cifar-10  |    0.5721    |    0.4439   |    0.4102     |
 | Luminance Cifar-10 |    0.5464    |    0.4323   |    0.4043     |
 | Contrast Cifar-10  |    0.5012    |    0.3957   |    0.3954     |

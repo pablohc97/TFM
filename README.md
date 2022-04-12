@@ -24,6 +24,9 @@ We train each model 2000 epochs with the modified dataset. We repeat 10 times wi
 | Modified Cifar-10 |  0.74 &pm; 0.01  |  0.75 &pm; 0.01 (1.4%)  |  0.77 &pm; 0.01 (4.1%)  |
 
 
+### Results
+
+The use of one or three DN layers gives an increase in accuracy in the two datasets. Also, as expected with the modified dataset we get smaller accuracy because the images have more variability. It happens in the No-DN and the 1-DN models but not for the 3-DN models, which shows that with 3-DN layers the models are able to adapt themselves to theses changes and not preform a reduction in the accuracy. Also it is important to highlight that the increase in accuracy when comparing the No-DN models with regard the 3-DN models is higher for the modified dataset.
 
 ## Segmentation problem
 
@@ -62,3 +65,18 @@ Next table shows the reductions in mean test IoU when comparing each fog level w
 | Original - Low fog    |    -13.3%    |   -13.3%    |    -9.1%    |
 | Original - Middle fog |    -28.0%    |   -29.3%    |    -19.5%   |
 | Original - High fog   |    -46.7%    |   -49.3%)   |    -37.7%   |
+
+### Results
+
+Although using just 1-GDN seems not to have a really important effect, using 4-GDN layers gives substantial increase in IoU in all cases. As expected, for  rogressively heavier fog, IoU gets reduced in all cases. However the conventional architecture is more sensitive to the decrease in visibility (bigger reductions in performance) than the architecture with 4-GDN layers. The use of 4-GDN always leads to improvements with regard the No-GDN case, but it is important to see that the gains get progressively bigger when the acquisition conditions are poor.
+
+## Cite
+
+@misc{hernandez_divisive_normalization_segmentation, <br/>
+  author = {Hernández-Cámara, Pablo and Laparra, Valero and Malo, Jesús}, <br/>
+  title = {Neural Networks with Divisive normalization for image segmentation with application in cityscapes dataset},  <br/>
+  doi = {10.48550/ARXIV.2203.13558},   <br/>
+  url = {https://arxiv.org/abs/2203.13558},   <br/>
+  publisher = {arXiv},   <br/>
+  year = {2022}}
+

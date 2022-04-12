@@ -14,7 +14,7 @@ We use the [Cifar-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html) in th
 
 ### Experiments and results
 
-We build and train three different models. The first one, without any DN layers, has three convolutional layers with RELU followed by an average pooling and a final 10 neurons layers with soft-max activation function to predict the class of each image. The second model has the same extructure but includes one GDN layer located in the first position, i.e. the first layer of the model is the DN layer. Finally, the last model has the same extructure too but it includes three DN layers located before each convolutional layer.
+We build and train three different models. The first one, without any DN layers, has three convolutional layers with RELU followed by an average pooling and a final 10 neurons layers with soft-max activation function to predict the class of each image. The second model has the same extructure but includes one DN layer located in the first position, i.e. the first layer of the model is the DN layer. Finally, the last model has the same extructure too but it includes three DN layers located before each convolutional layer.
 
 We train each model 2000 epochs with the modified dataset. We repeat 10 times with different seeds and then we evaluate the models with the modified and the original data. Next table shows the mean and standard deviation accuracy performance in test and the improvements of the use of DN layers with regard no using DN in parenthesis.
 
@@ -29,11 +29,36 @@ We train each model 2000 epochs with the modified dataset. We repeat 10 times wi
 
 ### Dataset
 
-The Cityscapes dataset is used in this problem. It is a large-scale dataset that contains a diverse set of stereo video sequences recorded in street scenes from 50 different cities, with high quality pixel-level annotations of 5000 frames in addition to a larger set of 20000 weakly annotated frames. You can access it from [here](https://www.cityscapes-dataset.com/).
+We use the Cityscapes dataset in this problem. It is a large-scale dataset that contains a diverse set of stereo video sequences recorded in street scenes from 50 different cities, with high quality pixel-level annotations of 5000 frames in addition to a larger set of 20000 weakly annotated frames. You can access it from [here](https://www.cityscapes-dataset.com/).
 
 <p align="center">
     <img src="https://i.imgur.com/50UFABF.jpg" width="480" height="240" />
 </p>
 
+Also we use the Foggy Cityscapes, which is a modification of the original Cityscapes to simulate different fog levels, to test the models. You can access it from [here](http://people.ee.ethz.ch/~csakarid/SFSU_synthetic/).
+
+<p align="center">
+    <img src="./Segmentation/Cityscapes_fog_levls.png" width="480" height="200" />
+</p>
+
 
 ### Experiments and results
+
+We build and train three different models, all of them following the [U-Net architecture](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/). The first one, without any DN layers, simply replicates the U-Net architecture for our segmentation problem. The second model has the same extructure but includes one DN layer located in the first position, i.e. the first layer of the model is the DN layer. Finally, the last model has the same extructure too but it includes four DN layers located before each convolutional block of the encoder path.
+
+We train each model 500 epochs with the original Cityscapes dataset. We repeat 10 times with different seeds and then we evaluate the models with the original dataset and also with the different fog levels test images from the Foggy Cityscapes. Next table shows the mean and standard deviation IoU performance in test for each dataset and the improvements of the use of DN layers with regard no using DN in parenthesis.
+
+| Dataset               |   No DN layers   |        1 DN layer        |      4 DN layers         |
+|:---------------------:|:----------------:|:------------------------:|:------------------------:|
+| Original Cityscapes   |  0.75 &pm; 0.02  |  0.75 &pm; 0.01 (0.0%)   |  0.77 &pm; 0.02 (2.7%)   |
+| Low fog Cityscapes    |  0.65 &pm; 0.02  |  0.65 &pm; 0.04 (0.0%)   |  0.70 &pm; 0.02 (7.7%)   |
+| Middle fog Cityscapes |  0.54 &pm; 0.03  |  0.53 &pm; 0.04 (-1.9%)  |  0.62 &pm; 0.03 (14.8%)  |
+| High fog Cityscapes   |  0.40 &pm; 0.05  |  0.38 &pm; 0.04 (-5.0%)  |  0.48 &pm; 0.03 (20.0%)  |
+
+Next table shows the reductions in mean test IoU when comparing each fog level with the original, i.e. comparing the results of each model in the different datasets.
+
+| Dataset change        | No DN layers |  1 DN layer | 4 DN layers |
+|:---------------------:|:------------:|:-----------:|:-----------:|
+| Original - Low fog    |    -13.3%    |   -13.3%    |    -9.1%    |
+| Original - Middle fog |    -28.0%    |   -29.3%    |    -19.5%   |
+| Original - High fog   |    -46.7%    |   -49.3%)   |    -37.7%   |

@@ -38,7 +38,7 @@ We use the Cityscapes dataset in this problem. It is a large-scale dataset that 
 Also we use the Foggy Cityscapes, which is a modification of the original Cityscapes to simulate different fog levels, to test the models. You can access it from [here](http://people.ee.ethz.ch/~csakarid/SFSU_synthetic/).
 
 <p align="center">
-    <img src="./Segmentation/Cityscapes_fog_levls.png" width="480" height="200" />
+    <img src="./Segmentation/Cityscapes_fog_levels.png" width="700" height="200" />
 </p>
 
 

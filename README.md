@@ -1,12 +1,16 @@
-# Autonomous driving semantic segmentation improvement using generalized divisive normalization
+# Autonomous driving semantic segmentation improvement using divisive normalization
 
-The main objective is to check if the segmentation of autonomous driving images is improved by applying the normalization technique known as generalized divisive normalization (GDN). Two main problems will be faced:
+One of the key problems in computer vision is adaptation: models are too rigid to follow the variability of the inputs. The canonical computation that explains adaptation in sensory neuroscience is divisive normalization, and it has appealing effects on image manifolds. In this work we show that including divisive normalization in current deep networks makes them more invariant to non-informative changes in the images. In particular, the main objective is to check if the segmentation of autonomous driving images is improved by applying the divisive normalization (DN), specially for bad weather condition, such as fog, which introduces variability in textures. However, we face two problems:
 
 ## Classification problem
 
 ### Dataset
 
-The [Cifar-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html) is used in this problem. It consits of 60000 32 x 32 colour images in 10 classes. It is divided into 50000 training images and 10000 test images. 5000 random images are extracted from the training images to be used as validation images. Also, two new datasets are created from this one. First, the luminance of the images is randomly reduced by multiplying them by a factor between 0.2 and 1, where 1 means to leave the image as the original. Secondly, the contrast of the images is randomly changed (with the [PIL function](https://pillow.readthedocs.io/en/stable/reference/ImageEnhance.html)) between the factor 0.2 and 1.8, where as before the value of 1 means to leave the image as the original.
+We use the [Cifar-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html) in this problem. It consits of 60000 32 x 32 colour images in 10 classes. It is divided into 50000 training images and 10000 test images. We extract 5000 random images from the training images to use them as validation images. As the Cifar-10 images are so perfect, we perform two random modifications which locally change the contrast or the luminance of the images.
+
+<p>
+    <img src="https://i.imgur.com/50UFABF.jpg" width="480" height="240" />
+</p>
 
 ### Experiments and results
 

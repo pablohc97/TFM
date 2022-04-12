@@ -9,7 +9,7 @@ One of the key problems in computer vision is adaptation: models are too rigid t
 We use the [Cifar-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html) in this problem. It consits of 60000 32 x 32 colour images in 10 classes. It is divided into 50000 training images and 10000 test images. We extract 5000 random images from the training images to use them as validation images. As the Cifar-10 images are so perfect, we perform two random modifications which locally change the contrast or the luminance of the images.
 
 <p>
-    <img src="https://i.imgur.com/50UFABF.jpg" width="480" height="240" />
+    <img src="./Classification/Cifar_images.png" width="480" height="240" />
 </p>
 
 ### Experiments and results
